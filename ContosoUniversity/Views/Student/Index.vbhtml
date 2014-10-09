@@ -11,13 +11,13 @@ End Code
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(Function(model) model.LastName)
+            @Html.ActionLink(Html.DisplayNameFor(Function(model) model.LastName).ToHtmlString, "Index", New With {.sortOrder = ViewBag.NameSortParam})
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.FirstMidName)
         </th>
         <th>
-            @Html.DisplayNameFor(Function(model) model.EnrollmentDate)
+            @Html.ActionLink(Html.DisplayNameFor(Function(model) model.EnrollmentDate).ToHtmlString, "Index", New With {.sortOrder = ViewBag.DateSortParam})
         </th>
         <th></th>
     </tr>
