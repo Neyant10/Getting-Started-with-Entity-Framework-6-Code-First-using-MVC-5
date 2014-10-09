@@ -4,7 +4,7 @@
 End Code
 
 <h2>Delete</h2>
-
+<p class="has-error">@ViewBag.ErrorMessage</p>
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Student</h4>
