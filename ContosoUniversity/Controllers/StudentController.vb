@@ -7,6 +7,7 @@ Imports System.Net
 Imports System.Web
 Imports System.Web.Mvc
 Imports PagedList
+Imports System.Data.Entity.Infrastructure
 Imports ContosoUniversity.DAL
 Imports ContosoUniversity.Models
 
@@ -82,7 +83,7 @@ Namespace Controllers
                     db.SaveChanges()
                     Return RedirectToAction("Index")
                 End If
-            Catch dex As DataException
+            Catch dex As RetryLimitExceededException
                 Debug.WriteLine(dex.ToString)
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your network administrator.")
             End Try
@@ -114,7 +115,7 @@ Namespace Controllers
                     db.SaveChanges()
                     Return RedirectToAction("Index")
                 End If
-            Catch dex As DataException
+            Catch dex As RetryLimitExceededException
                 Debug.WriteLine(dex.ToString)
                 ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.")
             End Try
@@ -144,7 +145,7 @@ Namespace Controllers
                 Dim student As Student = db.Students.Find(id)
                 db.Students.Remove(student)
                 db.SaveChanges()
-            Catch dex As DataException
+            Catch dex As RetryLimitExceededException
                 Return RedirectToAction("Delete", New With {.id = id, .saveChangesError = True})
             End Try
             Return RedirectToAction("Index")
