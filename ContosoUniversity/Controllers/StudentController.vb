@@ -16,12 +16,16 @@ Namespace Controllers
         Private db As New SchoolContext
 
         ' GET: Student
-        Function Index(sortOrder As String) As ActionResult
+        Function Index(sortOrder As String, searchString As String) As ActionResult
             ViewBag.NameSortParam = If(String.IsNullOrEmpty(sortOrder), "name_desc", "")
             ViewBag.DateSortParam = If(sortOrder = "Date", "date_desc", "Date")
 
             Dim students = From s In db.Students
                            Select s
+
+            If Not String.IsNullOrEmpty(searchString) Then
+                students = students.Where(Function(s) s.LastName.ToUpper.Contains(searchString.ToUpper) OrElse s.FirstMidName.ToUpper.Contains(searchString.ToUpper))
+            End If
 
             Select Case sortOrder
                 Case "name_desc"
