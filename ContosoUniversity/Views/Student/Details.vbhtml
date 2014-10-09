@@ -33,9 +33,31 @@ End Code
             @Html.DisplayFor(Function(model) model.EnrollmentDate)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(Function(model) model.Enrollments)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Course Title</th>
+                    <th>Grade</th>
+                </tr>
+                @For Each item In Model.Enrollments
+                    @<tr>
+                        <td>
+                            @Html.DisplayFor(Function(modelItem) item.Course.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Function(modelItem) item.Grade)
+                        </td>
+                    </tr>
+                Next
+            </table>
+        </dd>
     </dl>
+
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", New With { .id = Model.ID }) |
+    @Html.ActionLink("Edit", "Edit", New With {.id = Model.ID}) |
     @Html.ActionLink("Back to List", "Index")
 </p>
