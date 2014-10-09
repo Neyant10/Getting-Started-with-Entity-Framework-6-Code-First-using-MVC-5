@@ -6,6 +6,7 @@ Imports System.Linq
 Imports System.Net
 Imports System.Web
 Imports System.Web.Mvc
+Imports PagedList
 Imports ContosoUniversity.DAL
 Imports ContosoUniversity.Models
 
@@ -16,9 +17,16 @@ Namespace Controllers
         Private db As New SchoolContext
 
         ' GET: Student
-        Function Index(sortOrder As String, searchString As String) As ActionResult
+        Function Index(sortOrder As String, currentFilter As String, searchString As String, page As Integer?) As ActionResult
+            ViewBag.CurrentSort = sortOrder
             ViewBag.NameSortParam = If(String.IsNullOrEmpty(sortOrder), "name_desc", "")
             ViewBag.DateSortParam = If(sortOrder = "Date", "date_desc", "Date")
+
+            If searchString IsNot Nothing Then
+                page = 1
+            Else
+                searchString = currentFilter
+            End If
 
             Dim students = From s In db.Students
                            Select s
@@ -37,7 +45,10 @@ Namespace Controllers
                 Case Else
                     students = students.OrderBy(Function(s) s.LastName)
             End Select
-            Return View(students.ToList())
+            Dim pageSize As Integer = 3
+            Dim pageNumber As Integer = If(page, 1)
+
+            Return View(students.ToPagedList(pageNumber, pageSize))
         End Function
 
         ' GET: Student/Details/5
