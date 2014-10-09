@@ -53,6 +53,6 @@ End Using
 </table>
 
 Page @(If(Model.PageCount < Model.PageNumber, 0, Model.PageNumber)) of @Model.PageCount
-@Html.PagedListPager(Model, Function(page) Url.Action("Index", New With {page, .sortOrder = ViewBag.CurrentSort, .currentFilter = ViewBag.CurrentFilter}))
+@Html.PagedListPager(Model, Function(page) Url.Action("Index", New With {.page = page, .sortOrder = ViewBag.CurrentSort, .currentFilter = ViewBag.CurrentFilter}))
 
          

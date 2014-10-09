@@ -28,6 +28,8 @@ Namespace Controllers
                 searchString = currentFilter
             End If
 
+            ViewBag.CurrentFilter = searchString
+
             Dim students = From s In db.Students
                            Select s
 
