@@ -153,10 +153,15 @@
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="Controllers\StudentController.vb" />
+    <Compile Include="DAL\SchoolConfiguration.vb" />
     <Compile Include="DAL\SchoolInitializer.vb" />
+    <Compile Include="DAL\SchoolInterceptorLogging.vb" />
+    <Compile Include="DAL\SchoolInterceptorTransientErrors.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logging\ILogger.vb" />
+    <Compile Include="Logging\Logger.vb" />
     <Compile Include="Models\Course.vb" />
     <Compile Include="Models\Enrollment.vb" />
     <Compile Include="DAL\SchoolContext.vb" />
@@ -177,6 +182,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Controllers\HomeController.vb" />
+    <Compile Include="ViewModels\EnrollmentDateGroup.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
