@@ -27,6 +27,7 @@ Namespace Models
                 Return LastName + ", " + FirstMidName
             End Get
         End Property
+
         Public Overridable Property Enrollments As ICollection(Of Enrollment)
 
     End Class
