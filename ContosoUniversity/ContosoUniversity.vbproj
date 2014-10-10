@@ -170,6 +170,10 @@
       <DependentUpon>201410100842208_MaxLengthNumbers.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201410100842208_MaxLengthNumbers.vb" />
+    <Compile Include="Migrations\201410100844408_ColumnFirstName.Designer.vb">
+      <DependentUpon>201410100844408_ColumnFirstName.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410100844408_ColumnFirstName.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\Course.vb" />
     <Compile Include="Models\Enrollment.vb" />
@@ -199,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201410100842208_MaxLengthNumbers.resx">
       <DependentUpon>201410100842208_MaxLengthNumbers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410100844408_ColumnFirstName.resx">
+      <DependentUpon>201410100844408_ColumnFirstName.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
