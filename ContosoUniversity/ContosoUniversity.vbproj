@@ -153,6 +153,7 @@
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="Controllers\CourseController.vb" />
+    <Compile Include="Controllers\InstructorController.vb" />
     <Compile Include="Controllers\StudentController.vb" />
     <Compile Include="DAL\SchoolConfiguration.vb" />
     <Compile Include="DAL\SchoolInitializer.vb" />
@@ -204,6 +205,7 @@
     </Compile>
     <Compile Include="Controllers\HomeController.vb" />
     <Compile Include="ViewModels\EnrollmentDateGroup.vb" />
+    <Compile Include="ViewModels\InstructorIndexData.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201410100710088_InitialCreate.resx">
@@ -257,6 +259,11 @@
     <Content Include="Views\Course\Details.vbhtml" />
     <Content Include="Views\Course\Edit.vbhtml" />
     <Content Include="Views\Course\Index.vbhtml" />
+    <Content Include="Views\Instructor\Create.vbhtml" />
+    <Content Include="Views\Instructor\Delete.vbhtml" />
+    <Content Include="Views\Instructor\Details.vbhtml" />
+    <Content Include="Views\Instructor\Edit.vbhtml" />
+    <Content Include="Views\Instructor\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
