@@ -1,4 +1,4 @@
-﻿@Model IEnumerable(of ContosoUniversity.ViewModels.EnrollmentDateGroup)
+﻿@ModelType IEnumerable(of ContosoUniversity.ViewModels.EnrollmentDateGroup)
 @Code
     ViewData("Title") = "Student Body Statistics"
 End Code
