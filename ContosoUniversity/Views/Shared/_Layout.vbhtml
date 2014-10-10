@@ -24,7 +24,7 @@
                     <li>@Html.ActionLink("About", "Index", "Home")</li>
                     <li>@Html.ActionLink("Students", "Index", "Student")</li>
                     <li>@Html.ActionLink("Courses", "Index", "Course")</li>
-                    <li>@Html.ActionLink("Instructors", "Index", "Instructors")</li>
+                    <li>@Html.ActionLink("Instructors", "Index", "Instructor")</li>
                     <li>@Html.ActionLink("Departments", "Index", "Deparment")</li>
                     
                 </ul>

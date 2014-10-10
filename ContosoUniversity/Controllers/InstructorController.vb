@@ -8,6 +8,7 @@ Imports System.Web
 Imports System.Web.Mvc
 Imports ContosoUniversity.DAL
 Imports ContosoUniversity.Models
+Imports ContosoUniversity.ViewModels
 
 Namespace Controllers
     Public Class InstructorController
@@ -16,8 +17,24 @@ Namespace Controllers
         Private db As New SchoolContext
 
         ' GET: Instructor
-        Function Index() As ActionResult
-            
+        Function Index(id As Integer?, courseID As Integer?) As ActionResult
+            Dim viewModel As New InstructorIndexData
+            viewModel.Instructors = db.Instructors _
+                .Include(Function(i) i.OfficeAssignment) _
+                .Include(Function(i) i.Courses.Select(Function(c) c.Department)) _
+                .OrderBy(Function(i) i.LastName)
+
+            If id IsNot Nothing Then
+                ViewBag.InstructorID = id.Value
+                viewModel.Courses = viewModel.Instructors.Where(Function(i) (i.ID = id.Value)).Single.Courses
+
+                If courseID IsNot Nothing Then
+                    ViewBag.CourseID = courseID.Value
+                    viewModel.Enrollments = viewModel.Courses.Where(Function(x) (x.CourseID = courseID)).Single.Enrollments
+                End If
+
+            End If
+            Return View(viewModel)
         End Function
 
         ' GET: Instructor/Details/5

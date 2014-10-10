@@ -1,9 +1,9 @@
-﻿@ModelType IEnumerable(Of ContosoUniversity.Models.Instructor)
+﻿@ModelType ContosoUniversity.ViewModels.InstructorIndexData
 @Code
-ViewData("Title") = "Index"
+    ViewData("Title") = "Instructors"
 End Code
 
-<h2>Index</h2>
+<h2>ViewData("Title")</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -11,40 +11,47 @@ End Code
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(Function(model) model.OfficeAssignment.Location)
+            Last Name
         </th>
         <th>
-            @Html.DisplayNameFor(Function(model) model.LastName)
+            First Name
         </th>
         <th>
-            @Html.DisplayNameFor(Function(model) model.FirstMidName)
+            Hire Date
         </th>
         <th>
-            @Html.DisplayNameFor(Function(model) model.HireDate)
+            Office
         </th>
         <th></th>
     </tr>
 
-@For Each item In Model
-    @<tr>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.OfficeAssignment.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.FirstMidName)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.HireDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", New With {.id = item.ID }) |
-            @Html.ActionLink("Details", "Details", New With {.id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", New With {.id = item.ID })
-        </td>
-    </tr>
-Next
+    @For Each item In Model.Instructors
+        Dim selectedRow As String = ""
+        If item.ID = ViewBag.InstructorID Then
+            selectedRow = "success"
+        End If
+        @<tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.FirstMidName)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.HireDate)
+            </td>
+            <td>
+                @If item.OfficeAssignment IsNot Nothing Then
+                    @item.OfficeAssignment.Location
+                End If
+            </td>
+            <td>
+                @Html.ActionLink("Select", "Index", New With {.id = item.ID}) |
+                @Html.ActionLink("Edit", "Edit", New With {.id = item.ID}) |
+                @Html.ActionLink("Details", "Details", New With {.id = item.ID}) |
+                @Html.ActionLink("Delete", "Delete", New With {.id = item.ID})
+            </td>
+        </tr>
+    Next
 
 </table>
