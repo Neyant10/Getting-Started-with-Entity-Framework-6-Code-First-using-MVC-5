@@ -179,6 +179,7 @@
     <Compile Include="Models\Enrollment.vb" />
     <Compile Include="DAL\SchoolContext.vb" />
     <Compile Include="Models\Instructor.vb" />
+    <Compile Include="Models\OfficeAssignment.vb" />
     <Compile Include="Models\Student.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
