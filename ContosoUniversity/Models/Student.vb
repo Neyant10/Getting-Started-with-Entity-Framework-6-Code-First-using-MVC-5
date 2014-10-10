@@ -6,9 +6,11 @@ Namespace Models
         Public Property ID As Integer
 
         <DisplayName("Last Name")>
+        <StringLength(50)>
         Public Property LastName As String
 
         <DisplayName("First Name")>
+        <StringLength(50, ErrorMessage:="First name cannot be longer than 50 characters")>
         Public Property FirstMidName As String
 
         <DisplayName("Enrollment Date")>

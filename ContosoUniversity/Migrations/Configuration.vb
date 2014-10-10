@@ -14,11 +14,6 @@ Namespace Migrations
         End Sub
 
         Protected Overrides Sub Seed(context As DAL.SchoolContext)
-            '  This method will be called after migrating to the latest version.
-
-            '  You can use the DbSet(Of T).AddOrUpdate() helper extension method 
-            '  to avoid creating duplicate seed data. E.g.
-            '
             Dim students = New List(Of Student) From {
                 New Student With {.FirstMidName = "Carson", .LastName = "Alexander", .EnrollmentDate = DateTime.Parse("2005-09-01")},
                 New Student With {.FirstMidName = "Meredith", .LastName = "Alonso", .EnrollmentDate = DateTime.Parse("2002-09-01")},
