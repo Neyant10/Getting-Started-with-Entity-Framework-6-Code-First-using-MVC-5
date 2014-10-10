@@ -152,6 +152,7 @@
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
+    <Compile Include="Controllers\CourseController.vb" />
     <Compile Include="Controllers\StudentController.vb" />
     <Compile Include="DAL\SchoolConfiguration.vb" />
     <Compile Include="DAL\SchoolInitializer.vb" />
@@ -251,6 +252,11 @@
     <Content Include="Views\Student\Details.vbhtml" />
     <Content Include="Views\Student\Edit.vbhtml" />
     <Content Include="Views\Student\Index.vbhtml" />
+    <Content Include="Views\Course\Create.vbhtml" />
+    <Content Include="Views\Course\Delete.vbhtml" />
+    <Content Include="Views\Course\Details.vbhtml" />
+    <Content Include="Views\Course\Edit.vbhtml" />
+    <Content Include="Views\Course\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
