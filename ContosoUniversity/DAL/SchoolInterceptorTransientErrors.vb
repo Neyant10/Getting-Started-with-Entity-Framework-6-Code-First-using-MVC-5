@@ -17,7 +17,7 @@ Namespace DAL
                 command.Parameters(0).Value = "an"
                 command.Parameters(1).Value = "an"
             End If
-            If throwTransientErrors AndAlso _counter > 4 Then
+            If throwTransientErrors AndAlso _counter < 4 Then
                 _logger.Information("Returning transient error for command {0}", command.CommandText)
                 _counter += 1
                 interceptionContext.Exception = CreateDummySqlException()

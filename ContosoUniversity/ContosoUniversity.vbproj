@@ -162,6 +162,11 @@
     </Compile>
     <Compile Include="Logging\ILogger.vb" />
     <Compile Include="Logging\Logger.vb" />
+    <Compile Include="Migrations\201410100710088_InitialCreate.Designer.vb">
+      <DependentUpon>201410100710088_InitialCreate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410100710088_InitialCreate.vb" />
+    <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\Course.vb" />
     <Compile Include="Models\Enrollment.vb" />
     <Compile Include="DAL\SchoolContext.vb" />
@@ -185,6 +190,9 @@
     <Compile Include="ViewModels\EnrollmentDateGroup.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201410100710088_InitialCreate.resx">
+      <DependentUpon>201410100710088_InitialCreate.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

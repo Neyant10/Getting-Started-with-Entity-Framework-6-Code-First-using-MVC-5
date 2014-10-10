@@ -33,6 +33,7 @@
 
         Public Sub TraceApi(componentName As String, method As String, timespan As TimeSpan, properties As String) Implements ILogger.TraceApi
             Dim message As String = String.Concat("Component:", componentName, ";Method:", method, ";Timespan:", timespan.ToString, ";Properties:", properties)
+            Trace.TraceInformation(message)
         End Sub
 
         Public Sub TraceApi(componentName As String, method As String, timespan As TimeSpan, fmt As String, ParamArray vars() As Object) Implements ILogger.TraceApi
