@@ -174,8 +174,13 @@
       <DependentUpon>201410100844408_ColumnFirstName.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201410100844408_ColumnFirstName.vb" />
+    <Compile Include="Migrations\201410101101529_ComplexDataModel.Designer.vb">
+      <DependentUpon>201410101101529_ComplexDataModel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410101101529_ComplexDataModel.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\Course.vb" />
+    <Compile Include="Models\Department.vb" />
     <Compile Include="Models\Enrollment.vb" />
     <Compile Include="DAL\SchoolContext.vb" />
     <Compile Include="Models\Instructor.vb" />
@@ -208,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201410100844408_ColumnFirstName.resx">
       <DependentUpon>201410100844408_ColumnFirstName.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410101101529_ComplexDataModel.resx">
+      <DependentUpon>201410101101529_ComplexDataModel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
