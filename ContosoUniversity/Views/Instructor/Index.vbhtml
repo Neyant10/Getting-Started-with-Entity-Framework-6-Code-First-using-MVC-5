@@ -3,7 +3,7 @@
     ViewData("Title") = "Instructors"
 End Code
 
-<h2>ViewData("Title")</h2>
+<h2>@ViewData("Title")</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -55,3 +55,61 @@ End Code
     Next
 
 </table>
+
+@If Model.Courses IsNot Nothing Then
+    @<h3>Courses Taught by Selected Instructor</h3>
+    @<table class="table">
+        <tr>
+            <th></th>
+            <th>Number</th>
+            <th>Title</th>
+            <th>Department</th>
+        </tr>
+        @For Each item In Model.Courses
+                Dim selectedRow As String = ""
+                If item.CourseID = ViewBag.CourseID Then
+                    selectedRow = "success"
+                End If
+            @<tr>
+                <td>
+                    @Html.ActionLink("Select", "Index", New With {.courseID = item.CourseID})
+                </td>
+                <td>
+                    @item.CourseID
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Department.Name
+                </td>
+            </tr>
+        Next
+    </table>
+End If
+
+@If Model.Enrollments IsNot Nothing Then
+    @<h3>
+        Students Enrolled in Selected Course
+    </h3>
+    @<table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Grade
+            </th>
+        </tr>
+        @For Each item In Model.Enrollments
+            @<tr>
+                <td>
+                    @item.Student.FullName
+                </td>
+                <td>
+                    @Html.DisplayFor(Function(modelItem) item.Grade)
+                </td>
+            </tr>
+        Next
+    </table>
+End If
